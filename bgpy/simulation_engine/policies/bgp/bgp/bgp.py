@@ -28,7 +28,7 @@ from bgpy.simulation_engine.policies.policy import Policy
 from bgpy.simulation_engine.ann_containers import LocalRIB
 from bgpy.simulation_engine.ann_containers import RecvQueue
 
-from bgpy_sav.simulation_engine import BaseSAVPolicy
+from bgpy.simulation_engine.policies import BaseSAVPolicy
 
 if TYPE_CHECKING:
     from bgpy.as_graphs import AS
