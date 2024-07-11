@@ -23,6 +23,7 @@ from .policies import PathEnd
 from .policies import PathEndFull
 from .policies import ASPA
 from .policies import ASPAFull
+from .policies import BaseSAVPolicy
 
 # Old - just keeping these around for backwards compatability
 from .policies import BGP as BGPSimplePolicy
@@ -84,4 +85,5 @@ __all__ = [
     "ASPAPolicy",
     "BaseSimulationEngine",
     "SimulationEngine",
+    "BaseSAVPolicy",
 ]

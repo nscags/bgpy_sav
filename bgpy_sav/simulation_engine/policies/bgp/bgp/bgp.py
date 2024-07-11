@@ -28,6 +28,8 @@ from bgpy.simulation_engine.policies.policy import Policy
 from bgpy.simulation_engine.ann_containers import LocalRIB
 from bgpy.simulation_engine.ann_containers import RecvQueue
 
+from bgpy_sav.simulation_engine import BaseSAVPolicy
+
 if TYPE_CHECKING:
     from bgpy.as_graphs import AS
 
@@ -40,6 +42,7 @@ class BGP(Policy):
         _local_rib: Optional[LocalRIB] = None,
         _recv_q: Optional[RecvQueue] = None,
         as_: Optional["AS"] = None,
+        source_address_validation_policy: Optional[BaseSAVPolicy] = None
     ) -> None:
         """Add local rib and data structures here
 
@@ -53,6 +56,13 @@ class BGP(Policy):
         self._recv_q = _recv_q if _recv_q else RecvQueue()
         # This gets set within the AS class so it's fine
         self.as_: CallableProxyType["AS"] = as_  # type: ignore
+        self.source_address_validation_policy = source_address_validation_policy
+
+    def source_address_validation(self) -> bool:
+        if self.source_address_validation_policy:
+            self.source_address_validation_policy.validate()
+        else:
+            return True
 
     # Propagation functionality
     propagate_to_providers = propagate_to_providers

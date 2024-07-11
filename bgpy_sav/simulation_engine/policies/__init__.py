@@ -12,6 +12,7 @@ from .only_to_customers import OnlyToCustomers, OnlyToCustomersFull
 from .pathend import Pathend, PathendFull
 from .path_end import PathEnd, PathEndFull
 from .aspa import ASPA, ASPAFull
+from .sav import BaseSAVPolicy
 
 __all__ = [
     "BGP",
@@ -31,4 +32,5 @@ __all__ = [
     "PathEndFull",
     "ASPA",
     "ASPAFull",
+    "BaseSAVPolicy",
 ]
