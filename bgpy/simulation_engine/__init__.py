@@ -26,6 +26,8 @@ from .policies import ASPAFull
 from .policies import BaseSAVPolicy
 from .policies import StrictuRPF
 
+from .policies import BGPWithStrictuRPF
+
 # Old - just keeping these around for backwards compatability
 from .policies import BGP as BGPSimplePolicy
 from .policies import BGPFull as BGPPolicy
@@ -88,4 +90,5 @@ __all__ = [
     "SimulationEngine",
     "BaseSAVPolicy",
     "StrictuRPF",
+    "BGPWithStrictuRPF"
 ]
