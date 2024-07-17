@@ -1,9 +1,5 @@
-from typing import TYPE_CHECKING
-
+from bgpy.as_graphs import AS
 from .base_sav_policy import BaseSAVPolicy
-
-if TYPE_CHECKING:
-    from bgpy.as_graphs import AS
 
 class StrictuRPF(BaseSAVPolicy):
     """
