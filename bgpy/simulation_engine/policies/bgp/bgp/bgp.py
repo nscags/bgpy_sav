@@ -60,7 +60,7 @@ class BGP(Policy):
 
     def source_address_validation(self, as_obj, prev_hop, source) -> bool:
         if self.source_address_validation_policy:
-            self.source_address_validation_policy.validate(as_obj, prev_hop, source)
+            self.source_address_validation_policy.validate(as_obj=as_obj, prev_hop=prev_hop, source=source)
         else:
             return True
 
