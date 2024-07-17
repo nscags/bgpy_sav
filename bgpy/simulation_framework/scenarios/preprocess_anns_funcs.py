@@ -6,7 +6,7 @@ from bgpy.simulation_engine import BGPFull, ASPA, Pathend, PathEnd
 
 if TYPE_CHECKING:
     from bgpy.as_graphs import AS
-    from bgpy.simulation_framework.scenario import Scenario
+    from bgpy.simulation_framework.scenarios import Scenario
     from bgpy.simulation_engine import Announcement as Ann, BaseSimulationEngine
     from bgpy.simulation_engine import Policy
 

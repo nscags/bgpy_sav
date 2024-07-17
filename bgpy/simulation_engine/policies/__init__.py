@@ -13,6 +13,7 @@ from .pathend import Pathend, PathendFull
 from .path_end import PathEnd, PathEndFull
 from .aspa import ASPA, ASPAFull
 from .sav import BaseSAVPolicy
+from .sav import StrictuRPF
 
 __all__ = [
     "BGP",
@@ -33,4 +34,5 @@ __all__ = [
     "ASPA",
     "ASPAFull",
     "BaseSAVPolicy",
+    "StrictuRPF",
 ]
