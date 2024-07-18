@@ -18,4 +18,6 @@ class StrictuRPF(BaseSAVPolicy):
             if source_ann.next_hop_asn == prev_hop.asn:
                 return True
             else:
+                print(source_ann.next_hop_asn)
+                print(prev_hop.asn)
                 return False
