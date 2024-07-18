@@ -15,9 +15,7 @@ class StrictuRPF(BaseSAVPolicy):
                     source_ann = ann
 
             # check if interfaces match (symmetric route)
-            if source_ann.next_hop.asn == prev_hop.asn:
-                print(source_ann.next_hop.asn)
-                print(prev_hop.asn)
+            if source_ann.next_hop_asn == prev_hop.asn:
                 return True
             else:
                 return False
