@@ -14,10 +14,12 @@ class StrictuRPF(BaseSAVPolicy):
                 if ann.as_path[-1] == source:
                     source_ann = ann
 
+            if source_ann is None:
+                raise TypeError
+
             # check if interfaces match (symmetric route)
             if source_ann.next_hop_asn == prev_hop.asn:
                 return True
             else:
-                print(source_ann.next_hop_asn)
-                print(prev_hop.asn)
+                raise ValueError(f"{source_ann.next_hop_asn}, {prev_hop.asn}")
                 return False
