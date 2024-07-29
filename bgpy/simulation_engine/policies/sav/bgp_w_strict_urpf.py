@@ -1,7 +1,7 @@
 """
 temp solution
 """
-from bgpy.simulation_engine.policies import BGP
+from bgpy.simulation_engine.policies.bgp import BGP
 from bgpy.simulation_engine.policies.sav import StrictuRPF
 
 class BGPWithStrictuRPF(BGP):
