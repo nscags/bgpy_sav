@@ -28,7 +28,7 @@ from bgpy.simulation_engine.policies.policy import Policy
 from bgpy.simulation_engine.ann_containers import LocalRIB
 from bgpy.simulation_engine.ann_containers import RecvQueue
 
-# from bgpy.simulation_engine.policies.sav import BaseSAVPolicy
+from bgpy.simulation_engine.policies.sav import BaseSAVPolicy
 
 if TYPE_CHECKING:
     from bgpy.as_graphs import AS
@@ -42,7 +42,7 @@ class BGP(Policy):
         _local_rib: Optional[LocalRIB] = None,
         _recv_q: Optional[RecvQueue] = None,
         as_: Optional["AS"] = None,
-        source_address_validation_policy = None
+        source_address_validation_policy: Optional[BaseSAVPolicy] = None
     ) -> None:
         """Add local rib and data structures here
 
@@ -59,7 +59,7 @@ class BGP(Policy):
         self.source_address_validation_policy = source_address_validation_policy
 
     def source_address_validation(self, as_obj, prev_hop, source) -> bool:
-        if self.source_address_validation_policy:
+        if self.source_address_validation_policy is not None:
             self.source_address_validation_policy.validate(self, as_obj, prev_hop, source)
         else:
             return True
