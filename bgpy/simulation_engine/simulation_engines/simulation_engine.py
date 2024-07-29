@@ -4,6 +4,7 @@ from frozendict import frozendict
 
 from bgpy.enums import Relationships
 from bgpy.simulation_engine import Policy
+from bgpy.simulation_engine.policies import BaseSAVPolicy
 
 from .base_simulation_engine import BaseSimulationEngine
 
@@ -51,6 +52,8 @@ class SimulationEngine(BaseSimulationEngine):
         prev_scenario: Optional["Scenario"] = None,
         attacker_asns: frozenset[int] = frozenset(),
         AttackerBasePolicyCls: Optional[type[Policy]] = None,
+        reflector_asns: frozenset[int] = frozenset(),
+        BaseSAVPolicyCls: Optional[type[BaseSAVPolicy]] = None
     ) -> frozenset[type[Policy]]:
         """Resets Engine ASes and changes their AS class
 
@@ -71,6 +74,9 @@ class SimulationEngine(BaseSimulationEngine):
                 Cls = AttackerBasePolicyCls
             as_obj.policy = Cls(as_=as_obj)
             policy_classes_used.add(Cls)
+
+            if BaseSAVPolicyCls and as_obj.asn in reflector_asns:
+                as_obj.policy.source_address_validation_policy = BaseSAVPolicyCls
 
         # NOTE: even though the code below is more efficient than the code
         # above, for some reason it just breaks without erroring
