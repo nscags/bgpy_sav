@@ -23,4 +23,4 @@ class StrictuRPF(BaseSAVPolicy):
         #     else:
         #         raise ValueError(f"{source_ann.next_hop_asn}, {prev_hop.asn}")
         #         return False
-        return False
+        return True
