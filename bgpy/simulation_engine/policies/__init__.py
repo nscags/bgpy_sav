@@ -15,7 +15,7 @@ from .aspa import ASPA, ASPAFull
 from .sav import BaseSAVPolicy
 from .sav import StrictuRPF
 
-from .sav import BGPWithStrictuRPF
+from .bgp import BGPWithStrictuRPF
 
 __all__ = [
     "BGP",
