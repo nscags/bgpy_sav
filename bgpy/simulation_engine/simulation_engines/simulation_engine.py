@@ -31,6 +31,8 @@ class SimulationEngine(BaseSimulationEngine):
         prev_scenario: Optional["Scenario"] = None,
         attacker_asns: frozenset[int] = frozenset(),
         AttackerBasePolicyCls: Optional[type[Policy]] = None,
+        reflector_asns: frozenset[int] = frozenset(),
+        BaseSAVPolicyCls: Optional[type[BaseSAVPolicy]] = None
     ) -> frozenset[type[Policy]]:
         """Sets AS classes and seeds announcements"""
 
@@ -40,6 +42,8 @@ class SimulationEngine(BaseSimulationEngine):
             prev_scenario,
             attacker_asns,
             AttackerBasePolicyCls,
+            reflector_asns,
+            BaseSAVPolicyCls
         )
         self._seed_announcements(announcements, prev_scenario)
         self.ready_to_run_round = 0
