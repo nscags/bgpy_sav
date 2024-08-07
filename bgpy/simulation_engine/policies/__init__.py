@@ -14,8 +14,7 @@ from .path_end import PathEnd, PathEndFull
 from .aspa import ASPA, ASPAFull
 from .sav import BaseSAVPolicy
 from .sav import StrictuRPF
-
-from .bgp import BGPWithStrictuRPF
+from .sav import FeasiblePathuRPF
 
 __all__ = [
     "BGP",
@@ -37,5 +36,5 @@ __all__ = [
     "ASPAFull",
     "BaseSAVPolicy",
     "StrictuRPF",
-    "BGPWithStrictuRPF"
+    "FeasiblePathuRPF",
 ]
