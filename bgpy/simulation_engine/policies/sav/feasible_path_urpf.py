@@ -9,7 +9,8 @@ class FeasiblePathuRPF(BaseSAVPolicy):
             return True
         else:
             for neighbor_asn, prefix_dict in as_obj.policy._ribs_in.data.items():
-                for prefix, ann in prefix_dict.items():
+                for prefix, ann_info in prefix_dict.items():
+                    ann = ann_info.unprocessed_ann
                     if ann.as_path[-1] == source and ann.next_hop == prev_hop:
                         return True
             
