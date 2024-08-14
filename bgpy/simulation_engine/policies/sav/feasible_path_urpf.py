@@ -13,5 +13,4 @@ class FeasiblePathuRPF(BaseSAVPolicy):
                     ann = ann_info.unprocessed_ann
                     if ann.as_path[-1] == source and ann.next_hop_asn == prev_hop.asn:
                         return True
-            
             return False
